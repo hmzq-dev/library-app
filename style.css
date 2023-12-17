@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+body, h1, h2, p {
+    margin: 0;
+}
+
+button {
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border: 0;
+    border-radius: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
+.header {
+    background-color: #1e293b;
+    color: white;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.main {
+    padding: 30px;
+}
+
+.add-new-book {
+    background-color: #0069D9;
+    margin-bottom: 30px;
+}
+
+.book {
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+/* Fields in a book */
+.author::before {
+    content: "Author: ";
+}
+
+.number-of-pages::before {
+    content: "Number of pages: ";
+}
+
+.status::before {
+    content: "Status: ";
+}
+
+.delete {
+    background-color: #DC3545;
+}
+
+.toggle-status {
+    background-color: #218838;
+}
