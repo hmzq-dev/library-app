@@ -41,26 +41,24 @@ button:hover {
 
 .books-container {
     display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    grid-auto-rows: 150px;
     gap: 20px;
 }
 
 .book {
     border: 1px solid black;
-    padding: 20px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3px;
 }
 
-/* Fields in a book */
-.author::before {
-    content: "Author: ";
-}
-
-.number-of-pages::before {
-    content: "Number of pages: ";
-}
-
-.status::before {
-    content: "Status: ";
+.book-buttons-container {
+    align-self: end;
+    display: flex;
+    gap: 10px;
 }
 
 .delete {
