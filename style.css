@@ -39,9 +39,14 @@ button:hover {
     margin-bottom: 30px;
 }
 
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 20px;
+}
+
 .book {
     border: 1px solid black;
-    margin-bottom: 20px;
     padding: 20px;
 }
 
