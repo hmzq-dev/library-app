@@ -15,6 +15,14 @@ function Book(title, author, numberOfPages, read) {
 }
 
 
+function refreshLibraryDisplay() {
+    while (bookContainer.firstChild) {
+        bookContainer.removeChild(bookContainer.firstChild);
+    }
+    myLibrary.forEach(displayBook);
+}
+
+
 function displayBook(book) {
     // Create outer elements
     let bookElement = document.createElement("div");
@@ -23,6 +31,9 @@ function displayBook(book) {
     bookInfoContainer.className = "book-info-container";
     let bookButtonsContainer = document.createElement("div");
     bookButtonsContainer.className = "book-buttons-container";
+
+    // Set id attribute on book
+    bookElement.setAttribute("data-index", myLibrary.indexOf(book));
 
     // Create book info fields
     let bookTitle = document.createElement("h2");
@@ -54,6 +65,17 @@ function displayBook(book) {
     toggleStatusButton.className = "toggle-status";
     toggleStatusButton.textContent = "Toggle Status";
 
+    // Set event listeners on buttons
+    deleteButton.addEventListener("click", (event) => {
+        let bookSelectedIndex = event.target.parentNode.parentNode.getAttribute("data-index");
+        myLibrary.splice(bookSelectedIndex, 1);
+        refreshLibraryDisplay();
+    });
+
+    toggleStatusButton.addEventListener("click", (event) => {
+
+    });
+
     // Add book buttons to their container
     bookButtonsContainer.append(deleteButton, toggleStatusButton);
 
@@ -73,5 +95,5 @@ function addBookToLibrary() {
 }
 
 
-myLibrary.forEach(displayBook);
+refreshLibraryDisplay();
 
