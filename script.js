@@ -73,7 +73,10 @@ function displayBook(book) {
     });
 
     toggleStatusButton.addEventListener("click", (event) => {
-
+        let bookSelectedIndex = event.target.parentNode.parentNode.getAttribute("data-index");
+        let bookSelected = myLibrary[bookSelectedIndex];
+        bookSelected.read = !bookSelected.read;
+        refreshLibraryDisplay();
     });
 
     // Add book buttons to their container
