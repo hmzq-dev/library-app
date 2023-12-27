@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <div class="header">
         <h1>My Library</h1>
@@ -14,8 +17,38 @@
 
     <div class="main">
         <button class="add-book">+ Add Book</button>
-
         <div class="books-container"></div>
     </div>
+
+    <dialog>
+        <form method="dialog">
+            <div class="form-field">
+                <label for="title" class="label-block">Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div class="form-field">
+                <label for="author" class="label-block">Author</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+
+            <div class="form-field">
+                <label for="number-of-pages" class="label-block">Number of Pages</label>
+                <input type="number" id="number-of-pages" name="number-of-pages" required>
+            </div>
+
+            <div class="form-field">
+                <label class="label-question">Have you read this book?</label>
+                <input type="radio" name="read" id="yes" value="yes" checked required>
+                <label for="yes">Yes</label>
+
+                <input type="radio" name="read" id="no" value="no">
+                <label for="no">No</label>
+            </div>
+
+            <button type="submit" class="form-button">Add</button>
+        </form>
+    </dialog>
 </body>
+
 </html>

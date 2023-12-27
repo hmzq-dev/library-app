@@ -6,13 +6,16 @@ body, h1, h2, p {
     margin: 0;
 }
 
+button, .book, dialog {
+    border-radius: 10px;
+}
+
 button {
     color: white;
     font-weight: bold;
     padding: 10px 20px;
     font-size: 0.9rem;
-    border: 0;
-    border-radius: 10px;
+    border: none;
 }
 
 button:hover {
@@ -27,7 +30,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
 
 .main {
@@ -42,10 +45,11 @@ button:hover {
 .books-container {
     display: grid;
     grid-template-columns: repeat(4, minmax(300px, 1fr));
-    grid-auto-rows: 150px;
+    grid-auto-rows: 180px;
     gap: 20px;
 }
 
+/* Book styles */
 .book {
     border: 1px solid black;
     padding: 10px 20px;
@@ -53,6 +57,14 @@ button:hover {
     flex-direction: column;
     justify-content: space-between;
     gap: 3px;
+}
+
+.title {
+    margin-bottom: 5px;
+}
+
+.book-info-container {
+    font-size: 1.2rem;
 }
 
 .book-buttons-container {
@@ -65,6 +77,43 @@ button:hover {
     background-color: #DC3545;
 }
 
-.toggle-status {
+.toggle-read, .form-button {
     background-color: #218838;
+}
+
+/* Dialog Styles */
+::backdrop {
+    background-color: black;
+    opacity: 40%;
+}
+
+dialog {
+    border: 1px solid black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.label-block {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.label-block, .label-question {
+    font-size: 1.4rem;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.form-button {
+    align-self: center; 
 }

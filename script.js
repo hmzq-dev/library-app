@@ -1,5 +1,6 @@
 const bookContainer = document.querySelector(".books-container");
 const addBookButton = document.querySelector(".add-book");
+const addBookDialog = document.querySelector("dialog");
 
 const myLibrary = [
     new Book("Hobbit", "Tolkien", 262, true),
@@ -48,22 +49,22 @@ function displayBook(book) {
     bookNumberOfPages.className = "number-of-pages";
     bookNumberOfPages.textContent = `Number of Pages: ${book.numberOfPages}`;
 
-    let bookStatus = document.createElement("p");
-    bookStatus.className = "status";
-    bookStatus.textContent = "Status: ";
-    bookStatus.textContent += book.read ? "Read" : "Not Read";
+    let bookRead = document.createElement("p");
+    bookRead.className = "read";
+    bookRead.textContent = "Read: ";
+    bookRead.textContent += book.read ? "Yes" : "No";
 
     // Add book info fields to their container
-    bookInfoContainer.append(bookTitle, bookAuthor, bookNumberOfPages, bookStatus);
+    bookInfoContainer.append(bookTitle, bookAuthor, bookNumberOfPages, bookRead);
 
     // Create book buttons
     let deleteButton = document.createElement("button");
     deleteButton.className = "delete";
     deleteButton.textContent = "Delete";
 
-    let toggleStatusButton = document.createElement("button");
-    toggleStatusButton.className = "toggle-status";
-    toggleStatusButton.textContent = "Toggle Status";
+    let toggleReadButton = document.createElement("button");
+    toggleReadButton.className = "toggle-read";
+    toggleReadButton.textContent = "Toggle Read";
 
     // Set event listeners on buttons
     deleteButton.addEventListener("click", (event) => {
@@ -72,7 +73,7 @@ function displayBook(book) {
         refreshLibraryDisplay();
     });
 
-    toggleStatusButton.addEventListener("click", (event) => {
+    toggleReadButton.addEventListener("click", (event) => {
         let bookSelectedIndex = event.target.parentNode.parentNode.getAttribute("data-index");
         let bookSelected = myLibrary[bookSelectedIndex];
         bookSelected.read = !bookSelected.read;
@@ -80,7 +81,7 @@ function displayBook(book) {
     });
 
     // Add book buttons to their container
-    bookButtonsContainer.append(deleteButton, toggleStatusButton);
+    bookButtonsContainer.append(deleteButton, toggleReadButton);
 
     // Add outer elements to DOM
     bookContainer.append(bookElement);
@@ -88,14 +89,9 @@ function displayBook(book) {
 }
 
 
-function addBookToLibrary() {
-    let title = prompt("Enter title");
-    let author = prompt("Enter author");
-    let numberOfPages = prompt("Enter number of pages");
-    let read = prompt("Is the book read or not");
-    let newBook = new Book(title, author, numberOfPages, read);
-    myLibrary.push(newBook);
-}
+addBookButton.addEventListener("click", (event) => {
+    addBookDialog.showModal();
+});
 
 
 refreshLibraryDisplay();
