@@ -1,6 +1,7 @@
 const bookContainer = document.querySelector(".books-container");
 const addBookButton = document.querySelector(".add-book");
 const addBookDialog = document.querySelector("dialog");
+const addBookForm = document.querySelector("form");
 
 const myLibrary = [
     new Book("Hobbit", "Tolkien", 262, true),
@@ -92,6 +93,19 @@ function displayBook(book) {
 addBookButton.addEventListener("click", (event) => {
     addBookDialog.showModal();
 });
+
+addBookForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let submittedFormFields = event.target.elements;
+    let title = submittedFormFields.title.value;
+    let author = submittedFormFields.author.value;
+    let numberOfPages = submittedFormFields.numberOfPages.value;
+    let read = submittedFormFields.read.value;
+    let newBook = new Book(title, author, numberOfPages, read);
+    myLibrary.push(newBook);
+    addBookDialog.close();
+    refreshLibraryDisplay();
+})
 
 
 refreshLibraryDisplay();

@@ -24,17 +24,17 @@
         <form method="dialog">
             <div class="form-field">
                 <label for="title" class="label-block">Title</label>
-                <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="title" required maxlength="20">
             </div>
 
             <div class="form-field">
                 <label for="author" class="label-block">Author</label>
-                <input type="text" id="author" name="author" required>
+                <input type="text" id="author" name="author" required maxlength="20">
             </div>
 
             <div class="form-field">
                 <label for="number-of-pages" class="label-block">Number of Pages</label>
-                <input type="number" id="number-of-pages" name="number-of-pages" min="1" required>
+                <input type="number" id="number-of-pages" name="numberOfPages" min="1" max="9999" required>
             </div>
 
             <div class="form-field">
