@@ -61,10 +61,12 @@ button:hover {
 
 .title {
     margin-bottom: 5px;
+    overflow-wrap: anywhere;
 }
 
 .book-info-container {
     font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
 .book-buttons-container {

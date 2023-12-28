@@ -4,8 +4,8 @@ const addBookDialog = document.querySelector("dialog");
 const addBookForm = document.querySelector("form");
 
 const myLibrary = [
-    new Book("Hobbit", "Tolkien", 262, true),
-    new Book("Harry Potter", "Rowling", 354, false)
+    new Book("Hobbit", "T.R.R Tolkien", 262, true),
+    new Book("Harry Potter", "J.K Rowling", 354, false)
 ];
 
 
